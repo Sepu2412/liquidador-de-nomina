@@ -1,0 +1,13 @@
+liquidador_nomina/
+├── main.py                     # Punto de entrada del programa
+├── empleados.py               # Gestión de empleados
+├── calculos/
+│   ├── salario.py             # Cálculo del salario básico y por días trabajados
+│   ├── extras.py              # Cálculo de horas extras y recargos
+│   ├── deducciones.py         # Cálculo de salud, pensión, etc.
+│   ├── prestaciones.py        # Prima, cesantías, vacaciones, etc.
+│   └── neto.py                # Cálculo del salario neto final
+├── reportes.py                # Generación de reportes o recibos de nómina
+├── datos/
+│   └── empleados.csv          # Base de datos de empleados (puede ser CSV o JSON)
+└── utils.py                   # Funciones auxiliares (validaciones, fechas, etc.)
