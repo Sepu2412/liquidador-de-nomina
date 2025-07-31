@@ -31,4 +31,5 @@ El sistema facilita el proceso de liquidación de la nómina de forma precisa y 
 
 
 
-QUIEN HIZO ESTO 
+David Garcia Villanueva 
+Tomas Sepulveda Giraldo
