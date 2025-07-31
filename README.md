@@ -1,15 +1,15 @@
 # liquidador-de-nomina
 link audio : https://udemedellin-my.sharepoint.com/:f:/r/personal/tsepulveda913_soyudemedellin_edu_co/Documents/codigo%20limpio?csf=1&web=1&e=cBmg2h
+# Autores:
+David Garcia 
+Tomas Sepulveda 
 
-PARA QUE SIRVE ESTO
-ESTA APLICACION 
 # 💼 Liquidador de Nómina
 
 ## 📋 Descripción del Proyecto
 
 Este proyecto tiene como objetivo desarrollar un **Liquidador de Nómina**, una herramienta capaz de calcular automáticamente los pagos que un empleador debe realizar a sus trabajadores, teniendo en cuenta diversos factores como el salario base, horas extras, descuentos legales, prestaciones sociales, entre otros.
 
-El sistema facilita el proceso de liquidación de la nómina de forma precisa y eficiente, minimizando errores y cumpliendo con la normatividad laboral vigente.
 
 ## 🎯 Objetivos
 
