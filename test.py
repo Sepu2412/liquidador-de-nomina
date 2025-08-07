@@ -1,4 +1,5 @@
 import unittest
+from calcular_nomina import calcular_nomina
 
 
 def calcular_nomina(salario, dias, extras):
@@ -22,4 +23,5 @@ class TestLiquidadorNomina(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
 
