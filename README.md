@@ -28,7 +28,21 @@ Este proyecto tiene como objetivo desarrollar un **Liquidador de Nómina**, una 
 - Administración de empleados y configuración de parámetros salariales.
 
 
+Variables de Entrada
 
+Datos Base del Empleado:
+salario_base (numérico, varía por cargo): Salario mensual base del empleado.
+auxilio_transporte (numérico, según ley vigente): Auxilio de transporte, determinado por la ley actual.
+cargo (texto, determina salario y bonificaciones): Cargo o puesto del empleado, utilizado para determinar su salario base y bonificaciones.
+horarios (lista de días/horas laborales): Información de los días y horas laborales del empleado.
+horas_extras (cantidad y tipo: diurnas/nocturnas/festivas): Detalles de horas extras trabajadas, clasificados según el tipo (diurnas, nocturnas, festivas).
+Deducciones:
+
+prestamos (monto, cuotas, tasa de interés 6%): Préstamos del empleado, indicando el monto, el número de cuotas y la tasa de interés (6% anual).
+Variables de Salida
+salario_neto: Salario del empleado después de aplicar las deducciones y bonos.
+desglose_pago: Detalle de las horas extras, bonos, auxilio de transporte y deducciones.
+reporte_legal: Reporte con el cumplimiento de las normativas laborales en el cálculo de la liquidación.
 
 
 David Garcia Villanueva 
