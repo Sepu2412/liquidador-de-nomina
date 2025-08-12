@@ -39,3 +39,151 @@ def calcular_nomina(salario_base, dias_laborados, horas_extras):
 
     return round(total, 2)
 
+excepciones class ErrorSalarioBase(Exception):
+
+    def __init__(self, salario_base):
+        self.salario_base = salario_base
+        super().__init__(f"Error: El salario base ({salario_base}) debe ser mayor que cero.")
+
+
+class ErrorDiasLaborados(Exception):
+
+    def __init__(self, dias):
+        self.dias = dias
+        super().__init__(f"Error: Los días laborados ({dias}) deben estar entre 0 y 30.")
+
+
+class ErrorHorasExtras(Exception):
+
+    def __init__(self, horas):
+        self.horas = horas
+        super().__init__(f"Error: Las horas extras ({horas}) no pueden ser negativas.")
+
+
+
+
+test:
+
+import unittest
+from nomina import calcular_nomina
+from Excepciones import ErrorSalarioBase, ErrorDiasLaborados, ErrorHorasExtras
+
+
+class TestLiquidadorNomina(unittest.TestCase):
+   
+    def test_normal_1(self):
+        self.assertEqual(calcular_nomina(1500000, 30, 5), 1539062.5)
+
+    def test_normal_2(self):
+        self.assertEqual(calcular_nomina(1200000, 20, 0), 800000.00)
+
+    def test_normal_3(self):
+        self.assertEqual(calcular_nomina(1000000, 15, 10), 552083.33)
+
+   
+    def test_error_1(self):
+        self.assertIsNone(calcular_nomina(1500000, 37, 5))
+
+    def test_error_2(self):
+
+        salario_base = 1500000
+        horas_extras = 5
+        dias_laborados = 10
+
+
+        
+
+        with self.assertRaises(ErrorDiasLaborados):
+            nomina = calcular_nomina(salario_base, dias_laborados, horas_extras)
+
+
+
+    def test_caso_normal_1(self):
+        
+        salario_base = 1500000
+        horas_extras = 5
+        dias_laborados = 30
+        salario_esperado = 1539062.5
+
+        nomina = calcular_nomina(salario_base, dias_laborados, horas_extras)
+        
+        self.assertAlmostEqual(salario_esperado, nomina, 2)
+
+    def prueba_extraordinaria_1():
+        salario = 10000000
+        dias = 30
+        horas = 50
+        resultado = calcular_nomina(salario, dias, horas)
+        esperado = 11354166.67
+
+    
+if __name__ ==  "__main__":
+    unittest.main()
+
+
+modell:
+from Excepciones import ErrorSalarioBase, ErrorDiasLaborados, ErrorHorasExtras
+
+def calcular_nomina(salario_base, dias_laborados, horas_extras):
+
+    if salario_base <= 0:
+        raise ErrorSalarioBase(salario_base)
+
+    if dias_laborados < 0 or dias_laborados > 30:
+        raise ErrorDiasLaborados(dias_laborados)
+
+    if horas_extras < 0:
+        raise ErrorHorasExtras(horas_extras)
+
+    salario_dia = salario_base / 30
+    valor_hora = salario_base / 240
+    salario = salario_dia * dias_laborados
+    extras = horas_extras * valor_hora * 1.25
+    total = salario + extras
+
+    return round(total, 2)
+
+"""def prueba_normal_1():
+    salario = 1500000
+    dias = 30
+    horas = 5
+    resultado = calcular_nomina(salario, dias, horas)
+    esperado = 1639062.5
+
+    if resultado == round(esperado, 2):
+        print("exitosa")
+    else:
+        print(" falló. ", resultado)
+
+
+def prueba_extraordinaria_1():
+    salario = 10000000
+    dias = 30
+    horas = 50
+    resultado = calcular_nomina(salario, dias, horas)
+    esperado = 11354166.67
+
+    if resultado == round(esperado, 2):
+        print(" exitosa")
+    else:
+        print("falló.", resultado)
+
+
+
+def prueba_error_1():
+    salario = 1500000
+    dias = 37  
+    horas = 5
+    resultado = calcular_nomina(salario, dias, horas)
+
+    if resultado is None:
+        print(" no sirve  ")
+    else:
+        print("sirve", resultado)
+
+prueba_normal_1()
+prueba_extraordinaria_1()
+prueba_error_1()"""
+
+
+
