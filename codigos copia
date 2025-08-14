@@ -1,0 +1,30 @@
+from excepciones import ErrorSalarioBase, ErrorDiasLaborados, ErrorHorasExtras
+from nomina import calcular_nomina
+
+def interfaz_consola():
+    print("=== Liquidador de Nómina ===")
+    try:
+        salario_base = float(input("Ingrese salario base: "))
+        dias_laborados = int(input("Ingrese días laborados (0-30): "))
+        horas_extras = int(input("Ingrese horas extras: "))
+
+        # Validaciones con raise
+        if salario_base <= 0:
+            raise ErrorSalarioBase(salario_base)
+        if dias_laborados < 0 or dias_laborados > 30:
+            raise ErrorDiasLaborados(dias_laborados)
+        if horas_extras < 0:
+            raise ErrorHorasExtras(horas_extras)
+
+        total = calcular_nomina(salario_base, dias_laborados, horas_extras)
+        print(f"✅ Total a pagar: ${total:,.2f}")
+
+    except ValueError:
+        print("❌ Error: Debe ingresar valores numéricos.")
+    except (ErrorSalarioBase, ErrorDiasLaborados, ErrorHorasExtras) as e:
+        print(f"❌ {e}")
+    except Exception as e:
+        print(f"⚠️ Ocurrió un error inesperado: {e}")
+
+if __name__ == "__main__":
+    interfaz_consola()
