@@ -4,9 +4,6 @@ import unittest
 import sys
 sys.path.append("src")
 
-from model.calcular_nomina import nomina
-from model.excepciones import *
-
 from src.model.excepciones import ErrorSalarioBase, ErrorDiasLaborados, ErrorHorasExtras
 
 
