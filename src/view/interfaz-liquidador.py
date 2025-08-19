@@ -1,5 +1,5 @@
-from excepciones import ErrorSalarioBase, ErrorDiasLaborados, ErrorHorasExtras
-from nomina import calcular_nomina
+from src.model.excepciones import ErrorSalarioBase, ErrorDiasLaborados, ErrorHorasExtras
+from src.model.nomina import calcular_nomina
 
 
 def interfaz_consola():
