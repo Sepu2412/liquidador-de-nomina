@@ -17,3 +17,8 @@ class ErrorHorasExtras(Exception):
     def __init__(self, horas):
         self.horas = horas
         super().__init__(f"Error: Las horas extras ({horas}) no pueden ser negativas.")
+
+
+class ErrorHorasExtrasMaximas(Exception):
+    def __init__(self, total_horas):
+        super().__init__(f"Error: Las horas extras no pueden superar las 48 horas mensuales. Total ingresado: {total_horas}")

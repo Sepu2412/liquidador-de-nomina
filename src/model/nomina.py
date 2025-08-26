@@ -1,106 +1,67 @@
-
-
-"""from excepciones import ErrorSalarioBase, ErrorDiasLaborados, ErrorHorasExtras
-
-
-def calcular_nomina(salario_base, dias_laborados, horas_extras):
-
-    if salario_base <= 0:
-        raise ErrorSalarioBase(salario_base)
-
-    if dias_laborados < 0 or dias_laborados > 30:
-        raise ErrorDiasLaborados(dias_laborados)
-
-    if horas_extras < 0:
-        raise ErrorHorasExtras(horas_extras)
-
-    salario_dia = salario_base / 30
-    valor_hora = salario_base / 240
-    salario = salario_dia * dias_laborados
-    extras = horas_extras * valor_hora * 1.25
-    total = salario + extras
-
-    return round(total, 2)
-
-
-
-
-"""
-
-
-from src.model.excepciones import ErrorSalarioBase, ErrorDiasLaborados, ErrorHorasExtras
-
+from src.model.excepciones import (
+    ErrorSalarioBase,
+    ErrorDiasLaborados,
+    ErrorHorasExtras,
+    ErrorHorasExtrasMaximas
+)
 
 SALARIO_MINIMO = 1300000
 AUXILIO_TRANSPORTE = 162000
 HORAS_MES = 240
+HORAS_EXTRAS_MAXIMAS = 48
 
-def calcular_nomina(salario_base, dias_laborados, horas_extra_diurnas, horas_extra_nocturnas, bonificacion=0):
-    # Validaciones
-    if salario_base <= 0:
-        raise ErrorSalarioBase(salario_base)
-    if dias_laborados < 0 or dias_laborados > 30:
-        raise ErrorDiasLaborados(dias_laborados)
-    if horas_extra_diurnas < 0 or horas_extra_nocturnas < 0:
-        raise ErrorHorasExtras(horas_extra_diurnas + horas_extra_nocturnas)
+class LiquidadorNomina:
+    def __init__(self, salario_base, dias_laborados, horas_extra_diurnas, horas_extra_nocturnas, bonificacion=0):
+        self.salario_base = salario_base
+        self.dias_laborados = dias_laborados
+        self.horas_extra_diurnas = horas_extra_diurnas
+        self.horas_extra_nocturnas = horas_extra_nocturnas
+        self.bonificacion = bonificacion
 
-    # Cálculos base
-    salario_dia = salario_base / 30
-    valor_hora = salario_base / HORAS_MES
-    salario = salario_dia * dias_laborados
+        self._validar_datos()
 
-    # Auxilio transporte (proporcional a días trabajados)
-    auxilio = 0
-    if salario_base <= 2 * SALARIO_MINIMO and dias_laborados > 0:
-        auxilio = (AUXILIO_TRANSPORTE / 30) * dias_laborados
+    def _validar_datos(self):
+        if self.salario_base <= 0:
+            raise ErrorSalarioBase("El salario base debe ser mayor a 0.")
+        if not (0 <= self.dias_laborados <= 30):
+            raise ErrorDiasLaborados("Los días laborados deben estar entre 0 y 30.")
+        if self.horas_extra_diurnas < 0 or self.horas_extra_nocturnas < 0:
+            raise ErrorHorasExtras("Las horas extras no pueden ser negativas.")
 
-    # Horas extras
-    extras_diurnas = horas_extra_diurnas * valor_hora * 1.25
-    extras_nocturnas = horas_extra_nocturnas * valor_hora * 1.75
+        total_extras = self.horas_extra_diurnas + self.horas_extra_nocturnas
+        if total_extras > HORAS_EXTRAS_MAXIMAS:
+            raise ErrorHorasExtrasMaximas(total_extras)
 
-    # Total devengado
-    total_devengado = salario + auxilio + extras_diurnas + extras_nocturnas + bonificacion
+    def _calcular_salario_base(self):
+        return (self.salario_base / 30) * self.dias_laborados
 
-    return round(total_devengado, 2)
-"""def prueba_normal_1():
-    salario = 1500000
-    dias = 30
-    horas = 5
-    resultado = calcular_nomina(salario, dias, horas)
-    esperado = 1639062.5
+    def _calcular_auxilio_transporte(self):
+        if self.salario_base <= 2 * SALARIO_MINIMO and self.dias_laborados > 0:
+            return (AUXILIO_TRANSPORTE / 30) * self.dias_laborados
+        return 0
 
-    if resultado == round(esperado, 2):
-        print("exitosa")
-    else:
-        print(" falló. ", resultado)
+    def _calcular_valor_hora(self):
+        return self.salario_base / HORAS_MES
 
+    def _calcular_extras(self):
+        valor_hora = self._calcular_valor_hora()
+        diurnas = self.horas_extra_diurnas * valor_hora * 1.25
+        nocturnas = self.horas_extra_nocturnas * valor_hora * 1.75
+        return diurnas, nocturnas
 
-def prueba_extraordinaria_1():
-    salario = 10000000
-    dias = 30
-    horas = 50
-    resultado = calcular_nomina(salario, dias, horas)
-    esperado = 11354166.67
+    def _calcular_deducciones(self, total_devengado):
+        salud = total_devengado * 0.04
+        pension = total_devengado * 0.04
+        return salud, pension
 
-    if resultado == round(esperado, 2):
-        print(" exitosa")
-    else:
-        print("falló.", resultado)
+    def liquidar(self):
+        salario = self._calcular_salario_base()
+        auxilio = self._calcular_auxilio_transporte()
+        extras_diurnas, extras_nocturnas = self._calcular_extras()
 
+        total_devengado = salario + auxilio + extras_diurnas + extras_nocturnas + self.bonificacion
+        deduccion_salud, deduccion_pension = self._calcular_deducciones(total_devengado)
+        total_deducciones = deduccion_salud + deduccion_pension
+        salario_neto = total_devengado - total_deducciones
 
-
-def prueba_error_1():
-    salario = 1500000
-    dias = 37  
-    horas = 5
-    resultado = calcular_nomina(salario, dias, horas)
-
-    if resultado is None:
-        print(" no sirve  ")
-    else:
-        print("sirve", resultado)
-
-prueba_normal_1()
-prueba_extraordinaria_1()
-prueba_error_1()"""
-
+        return salario_neto
