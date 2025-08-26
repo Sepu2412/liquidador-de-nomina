@@ -44,6 +44,25 @@ salario_neto: Salario del empleado después de aplicar las deducciones y bonos.
 desglose_pago: Detalle de las horas extras, bonos, auxilio de transporte y deducciones.
 reporte_legal: Reporte con el cumplimiento de las normativas laborales en el cálculo de la liquidación.
 
+📤 Variables de Salida
+
+salario_neto (numérico):
+Valor total que recibe el empleado después de aplicar deducciones legales, descuentos y sumar bonificaciones o auxilios correspondientes.
+
+desglose_pago (objeto/detalle):
+Detalle completo del cálculo de nómina, incluyendo:
+
+Salario base.
+
+Horas extras (diurnas, nocturnas, festivas).
+
+Recargos.
+
+Auxilio de transporte.
+
+Deducciones (salud, pensión, fondo de solidaridad, préstamos).
+
+Bonificaciones (si aplican).
 
 David Garcia Villanueva 
 Tomas Sepulveda Giraldo
