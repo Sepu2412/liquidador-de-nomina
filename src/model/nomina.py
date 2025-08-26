@@ -1,3 +1,5 @@
+import sys
+sys.path.append("src")
 from src.model.excepciones import (
     ErrorSalarioBase,
     ErrorDiasLaborados,
@@ -36,7 +38,7 @@ class LiquidadorNomina:
         return (self.salario_base / 30) * self.dias_laborados
 
     def _calcular_auxilio_transporte(self):
-        if self.salario_base <= 2 * SALARIO_MINIMO and self.dias_laborados > 0:
+        if self.salario_base < 2 * SALARIO_MINIMO and self.dias_laborados > 0:
             return (AUXILIO_TRANSPORTE / 30) * self.dias_laborados
         return 0
 
