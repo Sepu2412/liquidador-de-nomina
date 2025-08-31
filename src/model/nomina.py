@@ -64,7 +64,7 @@ class LiquidadorNomina:
     def liquidar(self):
         salario = self._calcular_salario_base()
         auxilio = self._calcular_auxilio_transporte()
-        extras_diurnas, extras_nocturnas = self._calcular_extras()
+        extras_diurnas, extras_nocturnas = self._calcular_hora_extras()
 
         total_devengado = salario + auxilio + extras_diurnas + extras_nocturnas + self.bonificacion
         deduccion_salud, deduccion_pension = self._calcular_deducciones(total_devengado)
