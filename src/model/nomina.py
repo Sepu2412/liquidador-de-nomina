@@ -45,11 +45,16 @@ class LiquidadorNomina:
     def _calcular_valor_hora(self):
         return self.salario_base / HORAS_MES
 
-    def _calcular_extras(self):
+    def _calcular_hora_extras(self):
         valor_hora = self._calcular_valor_hora()
         diurnas = self.horas_extra_diurnas * valor_hora * 1.25
         nocturnas = self.horas_extra_nocturnas * valor_hora * 1.75
         return diurnas, nocturnas
+    # hora_diurna_recargo == 1.25
+    # hora_diurna_recargo == 1.75
+
+
+
 
     def _calcular_deducciones(self, total_devengado):
         salud = total_devengado * 0.04
