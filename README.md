@@ -64,10 +64,12 @@ Deducciones (salud, pensión, fondo de solidaridad, préstamos).
 
 Bonificaciones (si aplican).
 
-# Ejecutar pruebas unitarias
+# Ejecutar pruebas unitarias cons estas dos formas
 python -m unittest test.py
-# O si usas `tests/`:
 python -m unittest discover tests
+
+# ejecutar la interfaz de consola
+python interfaz.py
 
 David Garcia Villanueva 
 Tomas Sepulveda Giraldo
