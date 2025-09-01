@@ -64,5 +64,10 @@ Deducciones (salud, pensión, fondo de solidaridad, préstamos).
 
 Bonificaciones (si aplican).
 
+# Ejecutar pruebas unitarias
+python -m unittest test.py
+# O si usas `tests/`:
+python -m unittest discover tests
+
 David Garcia Villanueva 
 Tomas Sepulveda Giraldo
