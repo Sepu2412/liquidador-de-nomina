@@ -28,7 +28,7 @@ Este proyecto tiene como objetivo desarrollar un **Liquidador de Nómina**, una 
 - Administración de empleados y configuración de parámetros salariales.
 
 
-Variables de Entrada
+## Variables de Entrada
 
 Datos Base del Empleado:
 salario_base (numérico, varía por cargo): Salario mensual base del empleado.
@@ -44,7 +44,7 @@ salario_neto: Salario del empleado después de aplicar las deducciones y bonos.
 desglose_pago: Detalle de las horas extras, bonos, auxilio de transporte y deducciones.
 reporte_legal: Reporte con el cumplimiento de las normativas laborales en el cálculo de la liquidación.
 
-📤 Variables de Salida
+## 📤 Variables de Salida
 
 salario_neto (numérico):
 Valor total que recibe el empleado después de aplicar deducciones legales, descuentos y sumar bonificaciones o auxilios correspondientes.
@@ -64,12 +64,47 @@ Deducciones (salud, pensión, fondo de solidaridad, préstamos).
 
 Bonificaciones (si aplican).
 
-# Ejecutar pruebas unitarias cons estas dos formas
-python -m unittest test.py
-python -m unittest discover tests
 
-# ejecutar la interfaz de consola
-python interfaz.py
+## Documentación para la ejecución del programa y pruebas unitarias
+
+### Pasos para ejecutar el programa `main.py` desde la terminal de Windows:
+
+1. **Abrir la terminal de Windows**:
+  - Presiona `Win + R`, escribe `cmd` y presiona `Enter`.
+
+2. **Navegar al directorio del proyecto**:
+  - Utiliza el comando `cd` para cambiar al directorio donde se encuentra el archivo `main.py`. Por ejemplo:
+    ```sh
+    cd d:\Documentos\Programación\Proyectos\Liquidador-de-Nomina
+    ```
+
+3. **Ejecutar el programa**:
+  - Una vez en el directorio correcto, ejecuta el programa con el siguiente comando:
+    ```
+    python src/view/console/main.py
+    ```
+
+### Pasos para ejecutar las pruebas unitarias `test_nomina.py`:
+
+1. **Abrir la terminal de Windows**:
+  - Presiona `Win + R`, escribe `cmd` y presiona `Enter`.
+
+2. **Navegar al directorio del proyecto**:
+  - Utiliza el comando `cd` para cambiar al directorio donde se encuentra el archivo `test_nomina.py`. Por ejemplo:
+    ```sh
+    cd d:\Documentos\Programación\Proyectos Pycharm\Liquidador de Nomina\Liquidador-de-Nomina
+    ```
+
+3. **Ejecutar las pruebas unitarias**:
+  - Asegúrate de tener `unittest` disponible. Es parte de la biblioteca estándar de Python, por lo que no necesitas instalar nada adicional.
+  - Una vez en el directorio correcto, ejecuta las pruebas unitarias con el siguiente comando:
+    ```sh
+    python test/test.py
+    ```
+  - `unittest` buscará y ejecutará las pruebas definidas en `test.py` y mostrará los resultados en la terminal.
+
+
+
 
 David Garcia Villanueva 
 Tomas Sepulveda Giraldo
