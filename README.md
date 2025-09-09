@@ -95,17 +95,17 @@ python src/view/console/main.py
 
 ### Pasos para ejecutar las pruebas unitarias `test_nomina.py`:
 
-1. ** Abrir la terminal de Windows
+1. ## Abrir la terminal de Windows
 
 Presiona Win + R, escribe cmd y presiona Enter.
 
-2. ** Navegar al directorio del proyecto
+2. ## Navegar al directorio del proyecto
 
 Accede a la raíz del repositorio clonado:
 
 cd d:\Documentos\Programación\Proyectos\Liquidador-de-Nomina
 
-3. ** Ejecutar las pruebas
+3. ## Ejecutar las pruebas
 
 Ejecuta el siguiente comando para correr las pruebas unitarias con unittest:
 
@@ -113,6 +113,14 @@ python -m unittest test/test.py
 
 
 unittest detectará y ejecutará las pruebas definidas en test.py, mostrando los resultados en la terminal.
+
+## Requisitos
+
+Python 3.7 o superior
+
+Sistema operativo: Windows
+
+No se requieren librerías externas adicionales (solo unittest, incluido en la biblioteca estándar de Python)
 
 
 
