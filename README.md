@@ -68,6 +68,14 @@ Bonificaciones (si aplican).
 ## Documentación para la ejecución del programa y pruebas unitarias
 
 ### Pasos para ejecutar el programa `main.py` desde la terminal de Windows:
+1. 📥 Clonar el Repositorio
+
+Antes de ejecutar el programa o realizar pruebas, clona este repositorio en tu máquina local:
+
+git clone https://github.com/usuario/Liquidador-de-Nomina.git
+
+
+Reemplaza la URL con la correcta si es diferente.
 
 1. **Abrir la terminal de Windows**:
   - Presiona `Win + R`, escribe `cmd` y presiona `Enter`.
