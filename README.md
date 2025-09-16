@@ -66,91 +66,123 @@ Bonificaciones (si aplican).
 
 
 
-## Documentación para la ejecución del programa y pruebas unitarias
-
-### Pasos para ejecutar el programa `main.py` desde la terminal de Windows:
- ## 📥 Clonar el Repositorio
+Liquidador de Nómina
+Documentación para la Ejecución del Programa y Pruebas Unitarias
+1. Pasos para Ejecutar el Programa main.py desde la Terminal de Windows
+📥 Clonar el Repositorio
 
 Antes de ejecutar el programa o realizar pruebas, clona este repositorio en tu máquina local:
 
 git clone https://github.com/usuario/Liquidador-de-Nomina.git
 
 
-Reemplaza la URL con la correcta si es diferente.
+Nota: Asegúrate de reemplazar la URL con la correcta si es diferente.
 
-Documentación para la ejecución del programa y pruebas unitarias
-Pasos para ejecutar el programa main.py desde la terminal de Windows:
+🖥️ Ejecutar el Programa
+
 Abrir la terminal de Windows:
 Presiona Win + R, escribe cmd y presiona Enter.
+
 Navegar al directorio del proyecto:
-Utiliza el comando cd para cambiar al directorio donde se encuentra el archivo main.py. Por ejemplo:
+Utiliza el comando cd para cambiar al directorio donde se encuentra el archivo interfaz-liquidador.py. Por ejemplo:
+
 cd d:\Documentos\Programación\Proyectos\Liquidador-de-Nomina
+
+
 Ejecutar el programa:
-Una vez en el directorio correcto, ejecuta el programa con el siguiente comando:
+Una vez en el directorio correcto, ejecuta el siguiente comando:
+
 python src/view/interfaz-liquidador.py
-Pasos para ejecutar las pruebas unitarias test_nomina.py:
+
+2. Pasos para Ejecutar las Pruebas Unitarias test_nomina.py
+🖥️ Ejecutar las Pruebas Unitarias
+
 Abrir la terminal de Windows:
 Presiona Win + R, escribe cmd y presiona Enter.
-Navegar al directorio del proyecto:
+
+Navegar al directorio de pruebas:
 Utiliza el comando cd para cambiar al directorio donde se encuentra el archivo test_nomina.py. Por ejemplo:
-cd d:\Documentos\Programación\Proyectos Pycharm\Liquidador de Nomina\Liquidador-de-Nomina
+
+cd d:\Documentos\Programación\Proyectos\Pycharm\Liquidador-de-Nomina
+
+
 Ejecutar las pruebas unitarias:
-Asegúrate de tener unittest disponible. Es parte de la biblioteca estándar de Python, por lo que no necesitas instalar nada adicional.
-Una vez en el directorio correcto, ejecuta las pruebas unitarias con el siguiente comando:
+Asegúrate de tener unittest disponible (es parte de la biblioteca estándar de Python). Una vez en el directorio correcto, ejecuta las pruebas con el siguiente comando:
+
 python test/test.py
+
+
 unittest buscará y ejecutará las pruebas definidas en test_nomina.py y mostrará los resultados en la terminal.
+
 Arquitectura del Proyecto
-El proyecto está organizado en una estructura de carpetas que facilita la separación de responsabilidades y la mantenibilidad del código. A continuación se describe la organización de los módulos y las bibliotecas utilizadas:
+
+El proyecto está organizado en una estructura de carpetas que facilita la separación de responsabilidades y la mantenibilidad del código. A continuación, se describe la organización de los módulos y las bibliotecas utilizadas:
 
 Estructura de Carpetas
 Liquidador-de-Nomina/
-│
 ├── src/
 │   ├── model/
 │   │   ├── nomina.py
 │   │   ├── excepciones.py
-│   │   
 │   ├── view/
-│   |    ├── interfaz-liquidador.py
-│   |        
-│   |        
-|   |
-│   └── __init__.py
-│   
-│
+│   │   ├── interfaz-liquidador.py
+│   │   └── __init__.py
 ├── test/
 │   ├── test.py
 │   └── __init__.py
-│
 ├── archivos/
-├       ├── ── Liquidador-Nómina-casos.xlsx
-├       ├── ── audios
-|       ├── ── txt
-|
+│   ├── Liquidador-Nómina-casos.xlsx
+│   ├── audios/
+│   └── txt/
 ├── README.md
 └── requirements.txt
 
 Descripción de Carpetas y Archivos
+
 src/: Contiene el código fuente del proyecto.
+
 model/: Incluye la lógica de negocio y las clases principales.
-calculo_nomina.py: Contiene la clase Nomina y las funciones para calcular el salario, horas extras, bonificaciones, etc.
+
+nomina.py: Contiene la clase Nomina y las funciones para calcular el salario, horas extras, bonificaciones, etc.
+
 excepciones.py: Define las excepciones personalizadas utilizadas en el proyecto.
-view/: Contiene las interfaces de usuario.
+
+view/: Contiene las interfaces de usuario, en este caso, una interfaz de consola.
+
+interfaz-liquidador.py: Interfaz para interactuar con el usuario.
 
 test/: Contiene las pruebas unitarias.
+
 test.py: Incluye las pruebas unitarias para la clase Nomina y sus métodos.
-README.md: Documentación del proyecto.
-txt: Lista de dependencias y bibliotecas necesarias para ejecutar el proyecto.
+
+archivos/: Archivos necesarios para el funcionamiento del proyecto.
+
+Liquidador-Nómina-casos.xlsx: Archivo de casos de prueba.
+
+audios/: Archivos de audio utilizados en el proyecto.
+
+txt/: Archivos de texto utilizados en el proyecto.
+
+requirements.txt: Archivo que lista las dependencias y bibliotecas necesarias para ejecutar el proyecto.
+
 Bibliotecas Usadas
+
 unittest: Biblioteca estándar de Python para realizar pruebas unitarias.
+
 sys: Biblioteca estándar de Python para manipular el entorno de ejecución.
+
 Dependencias
-El proyecto no tiene dependencias externas adicionales a las bibliotecas estándar de Python. Todas las funcionalidades se implementan utilizando las bibliotecas estándar y el código propio del proyecto(por el momento).
+
+El proyecto no tiene dependencias externas adicionales a las bibliotecas estándar de Python. Todas las funcionalidades se implementan utilizando las bibliotecas estándar y el código propio del proyecto (por el momento).
 
 Organización de Módulos
-model: Contiene la lógica y las clases.
-view: Contiene las interfaces de usuario, en este caso, una interfaz de consola.
-test: Contiene las pruebas unitarias para asegurar la calidad del código.
+
+model/: Contiene la lógica y las clases.
+
+view/: Contiene las interfaces de usuario, en este caso, una interfaz de consola.
+
+test/: Contiene las pruebas unitarias para asegurar la calidad del código.
+
 Esta organización modular permite una fácil extensión y mantenimiento del proyecto, asegurando que cada componente tenga una responsabilidad clara y definida.
 
 
