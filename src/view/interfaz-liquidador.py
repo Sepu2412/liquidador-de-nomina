@@ -1,3 +1,6 @@
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 from src.model.excepciones import (
     ErrorSalarioBase,
     ErrorDiasLaborados,
@@ -32,7 +35,5 @@ def interfaz_consola():
         print(f" {e}")
     except Exception as e:
         print(f" Error inesperado: {e}")
-
-
 if __name__ == "__main__":
     interfaz_consola()
