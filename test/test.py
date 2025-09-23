@@ -10,9 +10,6 @@ from src.model.excepciones import (
 )
 
 class TestLiquidadorNomina(unittest.TestCase):
-
-
-
     def test_normal_1(self):
         liquidador = LiquidadorNomina(1500000, 30, 5, 0)
         self.assertAlmostEqual(liquidador.liquidar(), 1564977.5, places=1)

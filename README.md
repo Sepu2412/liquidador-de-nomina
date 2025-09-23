@@ -1,8 +1,9 @@
 # liquidador-de-nomina
 link audio : https://udemedellin-my.sharepoint.com/:f:/r/personal/tsepulveda913_soyudemedellin_edu_co/Documents/codigo%20limpio?csf=1&web=1&e=cBmg2h
 # Autores:
-David Garcia 
-Tomas Sepulveda 
+Isaac Mosquera
+Juan david 
+Samuel Duran
 
 # 💼 Liquidador de Nómina
 
