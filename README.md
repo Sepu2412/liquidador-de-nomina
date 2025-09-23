@@ -79,7 +79,7 @@ git clone https://github.com/usuario/Liquidador-de-Nomina.git
 
 Nota: Asegúrate de reemplazar la URL con la correcta si es diferente.
 
-🖥️ Ejecutar el Programa
+🖥️ Ejecutar interfaz por consola
 
 Abrir la terminal de Windows:
 Presiona Win + R, escribe cmd y presiona Enter.
