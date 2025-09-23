@@ -186,8 +186,17 @@ test/: Contiene las pruebas unitarias para asegurar la calidad del código.
 
 Esta organización modular permite una fácil extensión y mantenimiento del proyecto, asegurando que cada componente tenga una responsabilidad clara y definida.
 
+## 📤 Ejecutar la Interfaz
+Abrir la terminal de Windows:
+Presiona Win + R, escribe cmd y presiona Enter.
+
+Navegar al directorio del proyecto:
+Utiliza el comando cd para cambiar al directorio donde se encuentra el archivo interfaz-liquidador.py. Por ejemplo:
+
+cd d:\Documentos\Programación\Proyectos\Liquidador-de-Nomina
 
 
+Ejecutar el programa:
+Una vez en el directorio correcto, ejecuta el siguiente comando:
 
-David Garcia Villanueva 
-Tomas Sepulveda Giraldo
+python src/view/interfaz-liquidador-gui.py
