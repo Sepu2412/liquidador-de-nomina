@@ -44,6 +44,9 @@ CREATE TABLE deducciones (
     monto NUMERIC(15,2)
 );
 
+
+
+
 -- Tabla de devengos
 CREATE TABLE devengos (
     id SERIAL PRIMARY KEY,
