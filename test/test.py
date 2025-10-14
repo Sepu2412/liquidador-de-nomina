@@ -1,6 +1,7 @@
-import unittest
 import sys
-sys.path.append("src")
+import os
+import unittest
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 from src.model.nomina import LiquidadorNomina
 from src.model.excepciones import (
     ErrorSalarioBase,
@@ -10,9 +11,6 @@ from src.model.excepciones import (
 )
 
 class TestLiquidadorNomina(unittest.TestCase):
-
-
-
     def test_normal_1(self):
         liquidador = LiquidadorNomina(1500000, 30, 5, 0)
         self.assertAlmostEqual(liquidador.liquidar(), 1564977.5, places=1)
