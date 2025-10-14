@@ -47,6 +47,8 @@ CREATE TABLE deducciones (
 
 
 
+
+
 -- Tabla de devengos
 CREATE TABLE devengos (
     id SERIAL PRIMARY KEY,
