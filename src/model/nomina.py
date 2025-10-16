@@ -59,30 +59,3 @@ class LiquidadorNomina:
         salario_neto = total_devengado - total_deducciones
         return salario_neto
 
-
-from sqlalchemy import Column, Integer, String, Date, Numeric
-from sqlalchemy.ext.declarative import declarative_base
-
-Base = declarative_base()
-
-class Empleado(Base):
-    __tablename__ = 'empleado'
-
-    id = Column(Integer, primary_key=True)
-    nombre = Column(String(100), nullable=False)
-    cedula = Column(String(20), unique=True, nullable=False)
-    fecha_ingreso = Column(Date, nullable=False)
-    salario_base = Column(Numeric(15,2), nullable=False)
-
-    def is_equal(self, other):
-        if other is None:
-            return False
-        return (
-            self.nombre == other.nombre and
-            self.cedula == other.cedula and
-            self.fecha_ingreso == other.fecha_ingreso and
-            float(self.salario_base) == float(other.salario_base)
-        )
-
-    def __repr__(self):
-        return f"<Empleado(id={self.id}, nombre={self.nombre}, cedula={self.cedula})>"
