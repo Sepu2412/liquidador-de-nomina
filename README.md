@@ -6,7 +6,7 @@ Isaac Mosquera
 Juan david 
 Samuel Duran
 
-# Autores GUI:
+# Autores :
 Edgar David Garcia
 Tomas Sepulveda
 # 💼 Liquidador de Nómina
