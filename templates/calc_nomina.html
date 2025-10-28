@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Liquidación de Nómina</title>
+</head>
+<body>
+    <h2>Formulario de Liquidación de Nómina</h2>
+
+    <form action="/nomina/calcular" method="post">
+        <div>
+            <label>Nombre del Empleado:</label>
+            <input type="text" name="nombre" required>
+        </div>
+
+        <div>
+            <label>Cargo:</label>
+            <input type="text" name="cargo" required>
+        </div>
+
+        <div>
+            <label>Salario Base (mensual):</label>
+            <input type="number" name="salario_base" required>
+        </div>
+
+        <div>
+            <label>Horas Extras:</label>
+            <input type="number" name="horas_extras" value="0">
+        </div>
+
+        <div>
+            <label>Días Trabajados:</label>
+            <input type="number" name="dias_trabajados" max="30" required>
+        </div>
+
+        <div>
+            <label>Bonificaciones (opcional):</label>
+            <input type="number" name="bonificaciones" value="0">
+        </div>
+
+        <input type="submit" value="Calcular Nómina">
+    </form>
+</body>
+</html>
+
