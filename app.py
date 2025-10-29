@@ -1,37 +1,43 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request
+from src.model.nomina import LiquidadorNomina
 
 app = Flask(__name__)
 
-# 🔹 Ruta principal: redirige automáticamente a /nomina/calcular
-@app.route("/")
+@app.route('/')
 def inicio():
-    return redirect(url_for("calcular_nomina"))
+    # Muestra el formulario de cálculo
+    return render_template('calc_nomina.html')
 
-# 🔹 Ruta del formulario y cálculo
-@app.route("/nomina/calcular", methods=["GET", "POST"])
+@app.route('/nomina/calcular', methods=['POST'])
 def calcular_nomina():
-    if request.method == "POST":
-        nombre = request.form["nombre"]
-        cargo = request.form["cargo"]
-        salario_base = float(request.form["salario_base"])
-        horas_extras = float(request.form["horas_extras"])
-        dias_trabajados = int(request.form["dias_trabajados"])
-        bonificaciones = float(request.form["bonificaciones"])
+    try:
+        # Obtener los datos del formulario
+        salario_base = float(request.form['salario_base'])
+        dias_laborados = int(request.form['dias_laborados'])
+        horas_extra_diurnas = int(request.form['horas_extra_diurnas'])
+        horas_extra_nocturnas = int(request.form['horas_extra_nocturnas'])
+        bonificacion = float(request.form['bonificacion'])
 
-        valor_hora = salario_base / 240
-        pago_horas_extras = horas_extras * valor_hora * 1.25
-        salario_proporcional = (salario_base / 30) * dias_trabajados
-        total_pagar = salario_proporcional + pago_horas_extras + bonificaciones
+        # Crear el objeto y calcular la nómina
+        liquidador = LiquidadorNomina(
+            salario_base=salario_base,
+            dias_laborados=dias_laborados,
+            horas_extra_diurnas=horas_extra_diurnas,
+            horas_extra_nocturnas=horas_extra_nocturnas,
+            bonificacion=bonificacion
+        )
 
-        return f"""
-        <h3>Resultado de Nómina</h3>
-        <p><b>Empleado:</b> {nombre}</p>
-        <p><b>Cargo:</b> {cargo}</p>
-        <p><b>Total a pagar:</b> ${total_pagar:,.2f}</p>
-        """
+        salario_neto = liquidador.liquidar()
 
-    return render_template("calc_nomina.html")
+        # Mostrar resultado en pantalla
+        return f"<h2>Salario Neto Calculado: ${salario_neto:,.2f}</h2><br><a href='/'>Volver</a>"
 
+    except Exception as e:
+        return f"<h3>Error en el cálculo: {str(e)}</h3><br><a href='/'>Volver</a>"
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)
+
+
+
+
