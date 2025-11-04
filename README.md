@@ -1,6 +1,6 @@
 # liquidador-de-nomina
 link audio : https://udemedellin-my.sharepoint.com/:f:/r/personal/tsepulveda913_soyudemedellin_edu_co/Documents/codigo%20limpio?csf=1&web=1&e=cBmg2h
-# link de render
+# link de render/pagina web
 https://liquidador-de-nomina-nqr5.onrender.com
 # Autores GUI:
 
@@ -206,3 +206,69 @@ Ejecutar el programa:
 Una vez en el directorio correcto, ejecuta el siguiente comando:
 
 python src/view/interfaz-liquidador-gui.py
+
+🧰 Dependencias
+
+El proyecto usa las siguientes librerías:
+
+Flask==3.0.0
+psycopg2-binary==2.9.9
+
+
+Instálalas con:
+
+pip install -r requirements.txt
+
+🚀 Instrucciones para Ejecutar Localmente
+
+Clona el repositorio
+
+git clone https://github.com/usuario/Liquidador-de-Nomina.git
+cd Liquidador-de-Nomina
+
+
+Crea y activa un entorno virtual
+
+python -m venv venv
+venv\Scripts\activate
+
+
+Instala dependencias
+
+pip install -r requirements.txt
+
+
+Ejecuta la aplicación Flask
+
+python app.py
+
+
+Abre el navegador
+
+http://127.0.0.1:5000/
+
+☁️ Despliegue en Render
+🧾 Pasos
+
+Crea una cuenta en Render
+
+Conecta tu repositorio de GitHub.
+
+Crea un nuevo servicio web
+
+Selecciona tu repositorio del proyecto
+
+Establece el runtime: Python
+
+Comando de inicio:
+
+gunicorn app:app
+
+
+Agrega el archivo requirements.txt (Render lo instala automáticamente).
+
+Haz clic en “Deploy”.
+
+Una vez desplegado, Render te dará una URL como esta:
+
+https://liquidador-de-nomina-nqr5.onrender.com
