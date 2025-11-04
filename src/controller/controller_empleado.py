@@ -1,6 +1,7 @@
 import os
 from datetime import date
 
+
 from src.model.clase_empleado import Empleado
 import SecretConfig  # usa SecretConfig.py 
 
