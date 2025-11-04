@@ -1,31 +1,55 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Liquidación de Nómina</title>
+    <title>Nóminas Local</title>
 </head>
 <body>
-    <h2>Formulario de Liquidación de Nómina</h2>
-
-    <form action="/nomina/calcular" method="post">
-        <label>Salario Base:</label>
-        <input type="number" name="salario_base" required><br><br>
-
-        <label>Días Laborados:</label>
-        <input type="number" name="dias_laborados" required><br><br>
-
-        <label>Horas Extra Diurnas:</label>
-        <input type="number" name="horas_extra_diurnas" value="0"><br><br>
-
-        <label>Horas Extra Nocturnas:</label>
-        <input type="number" name="horas_extra_nocturnas" value="0"><br><br>
-
-        <label>Bonificación:</label>
-        <input type="number" name="bonificacion" value="0"><br><br>
-
-        <input type="submit" value="Calcular Nómina">
+{% if vista == "menu" %}
+    <h1>Menú Nómina</h1>
+    <ul>
+        <li><a href="/crear_tabla">Crear tabla de nóminas</a></li>
+        <li><a href="/insertar">Insertar nómina/calcular salario</a></li>
+        <li><a href="/buscar">Buscar nómina por cédula</a></li>
+    </ul>
+{% elif vista == "insertar" %}
+    <h2>Insertar nómina y calcular salario</h2>
+    <form method="POST">
+        Cedula: <input type="text" name="cedula" required><br>
+        Nombre: <input type="text" name="nombre" required><br>
+        Salario base: <input type="number" name="salario_base" step="0.01" required><br>
+        Días laborados: <input type="number" name="dias_laborados" required><br>
+        Horas extra diurnas: <input type="number" name="horas_extra_diurnas" required><br>
+        Horas extra nocturnas: <input type="number" name="horas_extra_nocturnas" required><br>
+        Bonificación: <input type="number" name="bonificacion" step="0.01" required><br>
+        <input type="submit" value="Insertar y calcular">
     </form>
-    
+    <a href="/">Volver al menú</a>
+{% elif vista == "buscar" %}
+    <h2>Buscar nómina</h2>
+    <form method="POST">
+        Cedula: <input type="text" name="cedula" required>
+        <input type="submit" value="Buscar">
+    </form>
+    {% if nomina %}
+        <h3>Resultado:</h3>
+        <ul>
+            <li>Cédula: {{ nomina[1] }}</li>
+            <li>Nombre: {{ nomina[2] }}</li>
+            <li>Salario base: {{ nomina[3] }}</li>
+            <li>Días laborados: {{ nomina[4] }}</li>
+            <li>Horas extra diurnas: {{ nomina[5] }}</li>
+            <li>Horas extra nocturnas: {{ nomina[6] }}</li>
+            <li>Bonificación: {{ nomina[7] }}</li>
+            <li>Salario Neto: <b>${{ "%.2f"|format(nomina[8]) }}</b></li>
+        </ul>
+    {% elif nomina is not none %}
+        <p>No se encontró nómina para esa cédula.</p>
+    {% endif %}
+    <a href="/">Volver al menú</a>
+{% elif vista == "mensaje" %}
+    <h2>{{ mensaje }}</h2>
+    <a href="/">Volver al menú</a>
+{% endif %}
 </body>
 </html>
 

@@ -1,9 +1,8 @@
 # Copiar a SecretConfig.py (NO subir con credenciales reales)
-PGDATABASE = "nomina"
-PGUSER = "tu_usuario"
-PGPASSWORD = "tu_clave"
-PGHOST = "localhost"
-PGPORT = "5432"
+PGDATABASE = "credit_card_nj4z"
+PGUSER = "profesor"
+PGPASSWORD = "qa3r9dDCrFMJ8ZhDzakHCinzcFKdtyL6"
+PGHOST = "dpg-d3dvoppr0fns73djd6a0-a.virginia-postgres.render.com"
+PGPORT = 5432
 
-# Nombre de BD de pruebas (opcional)
-TEST_PGDATABASE = "nomina_test"
+postgresql://profesor:qa3r9dDCrFMJ8ZhDzakHCinzcFKdtyL6@dpg-d3dvoppr0fns73djd6a0-a.virginia-postgres.render.com/credit_card_nj4z
